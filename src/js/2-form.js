@@ -10,7 +10,7 @@ form.addEventListener('submit', onSubmit);
 
 function onInput(evt) {    
     formData.email = form.elements.email.value.trim();
-    formData.message = form.elements.message.value.trim();
+    formData.message = form.elements.message.value.trim();    
     
     localStorage.setItem("feedback-form-state", JSON.stringify(formData));    
 }
@@ -28,11 +28,12 @@ if (data) {
 function onSubmit(evt) {
     evt.preventDefault();
 
-    const email = evt.currentTarget.elements.email.value;
-    const message = evt.currentTarget.elements.message.value;
+    const email = form.elements.email.value.trim();
+    const message = form.elements.message.value.trim();
+    console.log();
 
-    if (!(email && message)) {
-        alert("Fill please all fields");
+    if (email === '' || message === '') {
+        alert("Fill please all fields");        
     } else {
         console.log(formData);
         localStorage.removeItem("feedback-form-state");
