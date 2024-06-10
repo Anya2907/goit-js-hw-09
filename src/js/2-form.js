@@ -9,8 +9,8 @@ form.addEventListener('input', onInput);
 form.addEventListener('submit', onSubmit);
 
 function onInput(evt) {    
-    formData.email = form.elements.email.value;
-    formData.message = form.elements.message.value;
+    formData.email = form.elements.email.value.trim();
+    formData.message = form.elements.message.value.trim();
     
     localStorage.setItem("feedback-form-state", JSON.stringify(formData));    
 }
